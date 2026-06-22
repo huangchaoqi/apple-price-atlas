@@ -45,7 +45,7 @@ const markets=[
  {n:'加拿大',en:'Canada',flag:'🇨🇦',cur:'CAD',rate:1.37,tax:.05,refund:0,adj:1.03,note:'按 5% GST'},
  {n:'英国',en:'United Kingdom',flag:'🇬🇧',cur:'GBP',rate:.78,tax:.20,refund:0,adj:1.08,note:'游客无零售退税'}
 ];
-const fx={USD:1,CNY:7.18,HKD:7.81,AUD:1.51}; let mode='refund',expanded=false;
+const fx=window.ATLAS_STATUS?.fx||{USD:1,CNY:7.18,HKD:7.81,AUD:1.51}; markets.forEach(m=>{if(fx[m.cur])m.rate=fx[m.cur]}); let mode='refund',expanded=false;
 const $=s=>document.querySelector(s), money=(v,c)=>new Intl.NumberFormat('zh-CN',{style:'currency',currency:c,maximumFractionDigits:c==='JPY'?0:0}).format(v);
 function localPrice(p,m){const pre=p.usd*m.adj*m.rate;const retail=pre*(1+m.tax);return {retail,refund:retail*(1-m.refund),usdRetail:retail/m.rate,usdRefund:retail*(1-m.refund)/m.rate}}
 function target(v,cur){return v*fx[cur]}
@@ -53,7 +53,7 @@ function init(){
  const cats=['全部产品',...new Set(products.map(p=>p.c))]; $('#categorySelect').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
  $('#productCount').textContent=products.length; $('#marketCount').textContent=markets.length;
  const q=new URLSearchParams(location.search); renderProductOptions(q.get('category')||'全部产品'); if(q.get('product')&&products.some(p=>p.n===q.get('product')))$('#productSelect').value=q.get('product');
- $('#updatedAt').textContent=`${new Date().toLocaleDateString('zh-CN',{month:'short',day:'numeric'})} 已更新`; render();
+ const updateDate=window.ATLAS_STATUS?.updatedAt?new Date(window.ATLAS_STATUS.updatedAt):new Date(); $('#updatedAt').textContent=`${updateDate.toLocaleDateString('zh-CN',{month:'short',day:'numeric'})} 已更新`; render();
 }
 function renderProductOptions(cat){const list=cat==='全部产品'?products:products.filter(p=>p.c===cat);$('#productSelect').innerHTML=list.map(p=>`<option value="${p.n}">${p.n} · ${p.s}</option>`).join('')}
 function render(){

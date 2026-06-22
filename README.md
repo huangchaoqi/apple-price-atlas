@@ -22,3 +22,7 @@ node server.mjs
 4. 每次任务进行异常波动检测，通过后原子替换线上数据；失败则保留上一版。
 
 建议使用 GitHub Actions 或 Cloudflare Cron Trigger 每天运行一次更新任务。Apple 页面结构和地区条款可能变化，生产使用前需确认抓取合规性。
+
+## 公网发布与每周更新
+
+本仓库通过 `.github/workflows/update-and-deploy.yml` 独立发布到 GitHub Pages，并在每周一 10:00（澳大利亚珀斯时间）自动运行 `scripts/update-data.mjs`。任务会刷新汇率、核验 Apple 官方购买链接并重新部署；外部数据源失败时保留上一次成功快照。
