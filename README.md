@@ -28,3 +28,5 @@ node server.mjs
 本仓库通过 GitHub Pages 的 `main` 分支 `/root` 发布，并在每周一 10:00（澳大利亚珀斯时间）自动运行 `scripts/update-data.mjs`。任务会刷新汇率、核验 Apple 官方购买链接并自动提交；GitHub Pages 随后发布新版本。外部数据源失败时保留上一次成功快照。
 
 自动采集器会读取 iPhone、iPad 和 Mac 在 17 个 Apple 地区站点的结构化 SKU、Product/Offer 与配置价格键。未提供当地购买价格的组合不会覆盖已有成功快照。基础配置优先使用当地官网价，用户自选的升级配置按官网基准差额估算。
+
+每周任务同时扫描 Apple 的 iPhone、iPad、Mac 购买目录。能识别产品名称和基础价格的新品会自动加入 `autoCatalog`；已有产品的购买页连续两次检查失败后自动移除。单次网络故障只增加失败计数，不会立即删除线上产品。

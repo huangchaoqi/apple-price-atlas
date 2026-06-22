@@ -1,5 +1,5 @@
 // 官网购买链接是产品进入比较的白名单。没有 Apple 官方购买入口的型号不应加入此数组。
-const products=[
+const seedProducts=[
  {c:'iPhone',n:'iPhone 17e',s:'256GB',usd:599,u:'https://www.apple.com/shop/buy-iphone/iphone-17e'},
  {c:'iPhone',n:'iPhone 17',s:'256GB',usd:799,u:'https://www.apple.com/shop/buy-iphone/iphone-17'},
  {c:'iPhone',n:'iPhone Air',s:'256GB',usd:999,u:'https://www.apple.com/shop/buy-iphone/iphone-air'},
@@ -21,6 +21,7 @@ const products=[
  {c:'iPad',n:'iPad Pro 11″',s:'M5 · 256GB · Wi‑Fi',usd:999,u:'https://www.apple.com/shop/buy-ipad/ipad-pro'},
  {c:'iPad',n:'iPad Pro 13″',s:'M5 · 256GB · Wi‑Fi',usd:1299,u:'https://www.apple.com/shop/buy-ipad/ipad-pro'}
 ];
+const products=window.ATLAS_STATUS?.autoCatalog?.length?window.ATLAS_STATUS.autoCatalog:seedProducts;
 const markets=[
  {n:'美国',en:'United States',flag:'🇺🇸',cur:'USD',rate:1,tax:0,refund:0,adj:1,note:'官网标价 · 免税州口径'},
  {n:'日本',en:'Japan',flag:'🇯🇵',cur:'JPY',rate:161.23,tax:.10,refund:.081,adj:.92251,note:'官网含税价 · 游客免税估算'},

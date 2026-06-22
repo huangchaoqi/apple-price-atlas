@@ -74,6 +74,100 @@ function catalogProducts(appSource) {
     .map(x => ({ category: x[1], name: x[2], spec: x[3], usd: Number(x[4]), url: x[5] }));
 }
 
+const discoveryRoots = [
+  ['iPhone', 'https://www.apple.com/shop/buy-iphone', '/shop/buy-iphone/'],
+  ['Mac', 'https://www.apple.com/shop/buy-mac', '/shop/buy-mac/'],
+  ['iPad', 'https://www.apple.com/shop/buy-ipad', '/shop/buy-ipad/']
+];
+
+function canonicalName(name) {
+  return name.toLowerCase().replace(/-inch/g, '').replace(/[″”"()·‑–—]/g, ' ').replace(/\b(m\d(?: pro|max)?|wi fi|202\d)\b/g, '').split(/\s+/).filter(Boolean).sort().join('|');
+}
+
+function cleanProductName(name) {
+  return name.replace(/(\d+)-inch/gi, '$1″').replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function normalizeCatalogProduct(product) {
+  return {
+    category: product.category ?? product.c,
+    name: product.name ?? product.n,
+    spec: product.spec ?? product.s,
+    usd: product.usd,
+    url: product.url ?? product.u
+  };
+}
+
+function discoveredCandidates(category, url, html) {
+  const candidates = [];
+  if (category === 'iPhone') {
+    const grouped = new Map();
+    for (const item of structuredProducts(html)) {
+      const match = item.name.match(/^(iPhone .+?) (\d+(?:GB|TB))(?:\s|$)/i); if (!match) continue;
+      const name = cleanProductName(match[1]), capacity = match[2].toUpperCase();
+      const old = grouped.get(name); if (!old || item.price < old.usd) grouped.set(name, { category, name, spec: capacity, usd: item.price, url });
+    }
+    candidates.push(...grouped.values());
+  } else {
+    for (const item of schemaOfferProducts(html)) {
+      const name = cleanProductName(item.name);
+      if (!(category === 'Mac' ? /MacBook|iMac|Mac mini|Mac Studio|Mac Pro/i.test(name) : /^iPad/i.test(name))) continue;
+      candidates.push({ category, name, spec: '官网基础配置', usd: item.price, url });
+    }
+  }
+  return candidates;
+}
+
+async function discoverCatalog(seed, previousCatalog, previousHealth) {
+  let current = (previousCatalog?.length ? previousCatalog : seed).map(normalizeCatalogProduct);
+  current = current.filter(product => !(product.spec === '官网基础配置' && current.some(other =>
+    other !== product && other.category === product.category && other.url === product.url && other.spec !== '官网基础配置'
+  )));
+  const candidateMap = new Map(); const pageState = new Map(); const listedByCategory = new Map(); let pagesDiscovered = 0;
+  for (const [category, root, pathPrefix] of discoveryRoots) {
+    try {
+      const response = await fetch(root, { headers: { 'User-Agent': 'Mozilla/5.0 ApplePriceAtlas/1.0' }, signal: AbortSignal.timeout(25000) });
+      const html = response.ok ? await response.text() : '';
+      const urls = [...new Set([...html.matchAll(/href="([^"]+)"/g)].map(x => {
+        try { return new URL(x[1].replace(/&amp;/g, '&'), root).href; } catch { return null; }
+      }).filter(url => url && new URL(url).pathname.startsWith(pathPrefix) && new URL(url).pathname !== pathPrefix.slice(0, -1) && !/accessor|trade|carrier|compare|help/.test(url)))];
+      if (urls.length >= 2) listedByCategory.set(category, new Set(urls));
+      const pages = await mapLimit(urls, 6, async url => {
+        try { const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 ApplePriceAtlas/1.0' }, signal: AbortSignal.timeout(25000) }); return [url, r.ok ? await r.text() : null]; } catch { return [url, null]; }
+      });
+      for (const [url, page] of pages) if (page) {
+        pagesDiscovered++; pageState.set(url, true);
+        for (const product of discoveredCandidates(category, url, page)) candidateMap.set(canonicalName(product.name), product);
+      }
+    } catch { /* Keep prior catalog when discovery root is temporarily unavailable. */ }
+  }
+
+  const merged = new Map(current.map(p => [canonicalName(p.name), { ...p }]));
+  let added = 0;
+  for (const [key, candidate] of candidateMap) {
+    const existingPage = current.some(product => product.category === candidate.category && product.url === candidate.url);
+    if (!merged.has(key) && candidate.category !== 'iPhone' && existingPage) continue;
+    if (!merged.has(key)) { merged.set(key, candidate); added++; }
+    else {
+      const existing = merged.get(key);
+      merged.set(key, { ...existing, usd: candidate.usd || existing.usd, url: candidate.url || existing.url });
+    }
+  }
+
+  const health = { ...(previousHealth || {}) }; const kept = []; let removed = 0;
+  for (const product of merged.values()) {
+    const officialListing = listedByCategory.get(product.category);
+    let alive = officialListing ? officialListing.has(product.url) : pageState.get(product.url);
+    if (alive === undefined) {
+      try { const r = await fetch(product.url, { headers: { 'User-Agent': 'Mozilla/5.0 ApplePriceAtlas/1.0' }, signal: AbortSignal.timeout(20000) }); alive = r.ok; } catch { alive = false; }
+    }
+    const misses = alive ? 0 : (health[product.name]?.misses || 0) + 1;
+    health[product.name] = { misses, lastChecked: new Date().toISOString() };
+    if (misses < 2) kept.push(product); else { delete health[product.name]; removed++; }
+  }
+  return { catalog: kept, health, added, removed, candidates: candidateMap.size, pagesDiscovered };
+}
+
 function localizedProductUrl(usUrl, base, prefix) {
   const source = new URL(usUrl);
   return `${base}${prefix}${source.pathname}`;
@@ -236,8 +330,10 @@ async function fetchRegionalPrice([name, url]) {
 
 const previous = parseStatus(await readFile(statusFile, 'utf8'));
 const appSource = await readFile(appFile, 'utf8');
-const urls = officialUrls(appSource);
-const products = catalogProducts(appSource);
+const seed = catalogProducts(appSource);
+const discovery = await discoverCatalog(seed, previous.autoCatalog, previous.catalogHealth);
+const products = discovery.catalog;
+const urls = [...new Set(products.map(x => x.url))];
 const { rates, source } = await updateRates(previous.fx);
 const checks = await Promise.all(urls.map(checkOfficialUrl));
 const healthy = checks.filter(Boolean).length;
@@ -261,8 +357,14 @@ const next = {
   basePricesHealthy: basePriceResult.successful,
   basePricesChecked: basePriceResult.checked,
   catalogProductsChecked: products.length,
+  autoCatalog: products.map(product => ({ c: product.category, n: product.name, s: product.spec, usd: product.usd, u: product.url })),
+  catalogHealth: discovery.health,
+  discoveryAdded: discovery.added,
+  discoveryRemoved: discovery.removed,
+  discoveryCandidates: discovery.candidates,
+  discoveryPages: discovery.pagesDiscovered,
   fx: rates
 };
 
 await writeFile(statusFile, `window.ATLAS_STATUS = ${JSON.stringify(next, null, 2)};\n`, 'utf8');
-console.log(`Updated FX rates. Product links: ${healthy}/${urls.length}. Regional prices: ${regionalSuccessful.length}/${regionalPages.length}. Base prices: ${basePriceResult.successful}/${basePriceResult.checked} across ${basePriceResult.pages} pages.`);
+console.log(`Updated FX rates. Catalog: ${products.length} products (+${discovery.added}/-${discovery.removed}), ${discovery.candidates} candidates. Product links: ${healthy}/${urls.length}. Regional prices: ${regionalSuccessful.length}/${regionalPages.length}. Base prices: ${basePriceResult.successful}/${basePriceResult.checked} across ${basePriceResult.pages} pages.`);

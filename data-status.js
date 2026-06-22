@@ -1,5 +1,5 @@
 window.ATLAS_STATUS = {
-  "updatedAt": "2026-06-22T04:58:42.834Z",
+  "updatedAt": "2026-06-22T05:06:12.567Z",
   "fxSource": "ExchangeRate-API",
   "officialLinksHealthy": 15,
   "officialLinksChecked": 15,
@@ -392,11 +392,278 @@ window.ATLAS_STATUS = {
       "德国": 1449,
       "法国": 1469,
       "中国大陆": 11499
+    },
+    "iPhone 16 Plus": {
+      "美国": 829,
+      "韩国": 1290000,
+      "中国香港": 6899,
+      "中国台湾": 29900,
+      "新加坡": 1249,
+      "马来西亚": 3999,
+      "泰国": 29900,
+      "越南": 25999000,
+      "澳大利亚": 1399,
+      "瑞士": 799,
+      "德国": 949,
+      "法国": 969,
+      "中国大陆": 5999,
+      "英国": 799
     }
   },
-  "basePricesHealthy": 328,
-  "basePricesChecked": 340,
-  "catalogProductsChecked": 20,
+  "basePricesHealthy": 342,
+  "basePricesChecked": 357,
+  "catalogProductsChecked": 21,
+  "autoCatalog": [
+    {
+      "c": "iPhone",
+      "n": "iPhone 17e",
+      "s": "256GB",
+      "usd": 599,
+      "u": "https://www.apple.com/shop/buy-iphone/iphone-17e"
+    },
+    {
+      "c": "iPhone",
+      "n": "iPhone 17",
+      "s": "256GB",
+      "usd": 829,
+      "u": "https://www.apple.com/shop/buy-iphone/iphone-17"
+    },
+    {
+      "c": "iPhone",
+      "n": "iPhone Air",
+      "s": "256GB",
+      "usd": 999,
+      "u": "https://www.apple.com/shop/buy-iphone/iphone-air"
+    },
+    {
+      "c": "iPhone",
+      "n": "iPhone 17 Pro",
+      "s": "256GB",
+      "usd": 1099,
+      "u": "https://www.apple.com/shop/buy-iphone/iphone-17-pro"
+    },
+    {
+      "c": "iPhone",
+      "n": "iPhone 17 Pro Max",
+      "s": "256GB",
+      "usd": 1199,
+      "u": "https://www.apple.com/shop/buy-iphone/iphone-17-pro"
+    },
+    {
+      "c": "iPhone",
+      "n": "iPhone 16",
+      "s": "128GB",
+      "usd": 729,
+      "u": "https://www.apple.com/shop/buy-iphone/iphone-16"
+    },
+    {
+      "c": "Mac",
+      "n": "MacBook Neo",
+      "s": "基准配置",
+      "usd": 599,
+      "u": "https://www.apple.com/shop/buy-mac/macbook-neo"
+    },
+    {
+      "c": "Mac",
+      "n": "MacBook Air 13″",
+      "s": "2026 · 基准配置",
+      "usd": 1099,
+      "u": "https://www.apple.com/shop/buy-mac/macbook-air"
+    },
+    {
+      "c": "Mac",
+      "n": "MacBook Air 15″",
+      "s": "2026 · 基准配置",
+      "usd": 1299,
+      "u": "https://www.apple.com/shop/buy-mac/macbook-air"
+    },
+    {
+      "c": "Mac",
+      "n": "MacBook Pro 14″",
+      "s": "基准配置",
+      "usd": 1599,
+      "u": "https://www.apple.com/shop/buy-mac/macbook-pro"
+    },
+    {
+      "c": "Mac",
+      "n": "MacBook Pro 16″",
+      "s": "基准配置",
+      "usd": 2499,
+      "u": "https://www.apple.com/shop/buy-mac/macbook-pro"
+    },
+    {
+      "c": "Mac",
+      "n": "iMac 24″",
+      "s": "基准配置",
+      "usd": 1299,
+      "u": "https://www.apple.com/shop/buy-mac/imac"
+    },
+    {
+      "c": "Mac",
+      "n": "Mac mini",
+      "s": "基准配置",
+      "usd": 799,
+      "u": "https://www.apple.com/shop/buy-mac/mac-mini"
+    },
+    {
+      "c": "Mac",
+      "n": "Mac Studio",
+      "s": "基准配置",
+      "usd": 1999,
+      "u": "https://www.apple.com/shop/buy-mac/mac-studio"
+    },
+    {
+      "c": "iPad",
+      "n": "iPad",
+      "s": "A16 · 128GB · Wi‑Fi",
+      "usd": 349,
+      "u": "https://www.apple.com/shop/buy-ipad/ipad"
+    },
+    {
+      "c": "iPad",
+      "n": "iPad mini",
+      "s": "A17 Pro · 128GB · Wi‑Fi",
+      "usd": 499,
+      "u": "https://www.apple.com/shop/buy-ipad/ipad-mini"
+    },
+    {
+      "c": "iPad",
+      "n": "iPad Air 11″",
+      "s": "M4 · 128GB · Wi‑Fi",
+      "usd": 599,
+      "u": "https://www.apple.com/shop/buy-ipad/ipad-air"
+    },
+    {
+      "c": "iPad",
+      "n": "iPad Air 13″",
+      "s": "M4 · 128GB · Wi‑Fi",
+      "usd": 799,
+      "u": "https://www.apple.com/shop/buy-ipad/ipad-air"
+    },
+    {
+      "c": "iPad",
+      "n": "iPad Pro 11″",
+      "s": "M5 · 256GB · Wi‑Fi",
+      "usd": 999,
+      "u": "https://www.apple.com/shop/buy-ipad/ipad-pro"
+    },
+    {
+      "c": "iPad",
+      "n": "iPad Pro 13″",
+      "s": "M5 · 256GB · Wi‑Fi",
+      "usd": 1299,
+      "u": "https://www.apple.com/shop/buy-ipad/ipad-pro"
+    },
+    {
+      "c": "iPhone",
+      "n": "iPhone 16 Plus",
+      "s": "128GB",
+      "usd": 829,
+      "u": "https://www.apple.com/shop/buy-iphone/iphone-16"
+    }
+  ],
+  "catalogHealth": {
+    "iPhone 17e": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPhone 17": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPhone Air": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPhone 17 Pro": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPhone 17 Pro Max": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPhone 16": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "MacBook Neo": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "MacBook Air 13″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "MacBook Air 15″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "MacBook Pro 14″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "MacBook Pro 16″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iMac 24″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "Mac mini": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "Mac Studio": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPad": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPad mini": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPad Air 11″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPad Air 13″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPad Pro 11″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPad Pro 13″": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "iPhone 16 Plus": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:06:05.620Z"
+    },
+    "MacBook Air": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:04:20.183Z"
+    },
+    "MacBook Pro": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:04:20.183Z"
+    },
+    "iMac": {
+      "misses": 0,
+      "lastChecked": "2026-06-22T05:04:20.183Z"
+    }
+  },
+  "discoveryAdded": 0,
+  "discoveryRemoved": 0,
+  "discoveryCandidates": 19,
+  "discoveryPages": 18,
   "fx": {
     "USD": 1,
     "CNY": 6.789004,
