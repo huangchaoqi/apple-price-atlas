@@ -25,4 +25,4 @@ node server.mjs
 
 ## 公网发布与每周更新
 
-本仓库通过 `.github/workflows/update-and-deploy.yml` 独立发布到 GitHub Pages，并在每周一 10:00（澳大利亚珀斯时间）自动运行 `scripts/update-data.mjs`。任务会刷新汇率、核验 Apple 官方购买链接并重新部署；外部数据源失败时保留上一次成功快照。
+本仓库通过 GitHub Pages 的 `main` 分支 `/root` 发布，并在每周一 10:00（澳大利亚珀斯时间）自动运行 `scripts/update-data.mjs`。任务会刷新汇率、核验 Apple 官方购买链接并自动提交；GitHub Pages 随后发布新版本。外部数据源失败时保留上一次成功快照。
