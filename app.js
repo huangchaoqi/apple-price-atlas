@@ -58,14 +58,15 @@ function init(){
  const cats=['全部产品',...new Set(products.map(p=>p.c))]; $('#categorySelect').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
  $('#productCount').textContent=products.length; $('#marketCount').textContent=markets.length;
  const q=new URLSearchParams(location.search); renderProductOptions(q.get('category')||'全部产品'); if(q.get('product')&&products.some(p=>p.n===q.get('product')))$('#productSelect').value=q.get('product');
- const updateDate=window.ATLAS_STATUS?.updatedAt?new Date(window.ATLAS_STATUS.updatedAt):new Date(); $('#updatedAt').textContent=`${updateDate.toLocaleDateString('zh-CN',{month:'short',day:'numeric'})} 已更新`; render();
+ const updateDate=window.ATLAS_STATUS?.updatedAt?new Date(window.ATLAS_STATUS.updatedAt):new Date(); $('#updatedAt').textContent=`${updateDate.toLocaleDateString('zh-CN',{month:'short',day:'numeric'})} 已更新`; window.ATLAS_CONFIG.reset(); render();
 }
 function renderProductOptions(cat){const list=cat==='全部产品'?products:products.filter(p=>p.c===cat);$('#productSelect').innerHTML=list.map(p=>`<option value="${p.n}">${p.n} · ${p.s}</option>`).join('')}
 function render(){
  const p=products.find(x=>x.n===$('#productSelect').value)||products[3],cur=$('#currencySelect').value,q=$('#marketSearch').value.trim().toLowerCase();
- $('#currentProduct').textContent=p.n;$('#currentSpec').textContent=p.s+' · 官网在售基准配置';$('#officialLink').href=p.u;$('#productIcon').textContent={iPhone:'▯',Mac:'▰',显示器:'▱',iPad:'▭',Watch:'◉',AirPods:'◌',Vision:'∞'}[p.c];
- let rows=markets.map(m=>({...m,...localPrice(p,m)})).filter(m=>(m.n+m.en).toLowerCase().includes(q)).sort((a,b)=>a['usd'+(mode==='refund'?'Refund':'Retail')]-b['usd'+(mode==='refund'?'Refund':'Retail')]);
- const best=rows[0],cn=rows.find(x=>x.n==='中国大陆')||markets.map(m=>({...m,...localPrice(p,m)})).find(x=>x.n==='中国大陆'),key=mode==='refund'?'usdRefund':'usdRetail';
+ const config=window.ATLAS_CONFIG.ensure(p),pricedProduct={...p,usd:Math.max(1,p.usd+config.delta)};$('#configOptions').innerHTML=window.ATLAS_CONFIG.render(p);$('#configBasePrice').textContent=money(pricedProduct.usd,'USD');
+ $('#currentProduct').textContent=p.n;$('#currentSpec').textContent=config.summary;$('#officialLink').href=p.u;$('#productIcon').textContent={iPhone:'▯',Mac:'▰',显示器:'▱',iPad:'▭',Watch:'◉',AirPods:'◌',Vision:'∞'}[p.c];
+ let rows=markets.map(m=>({...m,...localPrice(pricedProduct,m)})).filter(m=>(m.n+m.en).toLowerCase().includes(q)).sort((a,b)=>a['usd'+(mode==='refund'?'Refund':'Retail')]-b['usd'+(mode==='refund'?'Refund':'Retail')]);
+ const best=rows[0],cn=rows.find(x=>x.n==='中国大陆')||markets.map(m=>({...m,...localPrice(pricedProduct,m)})).find(x=>x.n==='中国大陆'),key=mode==='refund'?'usdRefund':'usdRetail';
  $('#bestPrice').textContent=money(target(best[key],cur),cur);$('#bestMarket').textContent=`${best.flag} ${best.n} · ${mode==='refund'?'退税后':'含税'}`;
  const save=Math.max(0,cn[key]-best[key]);$('#savingPrice').textContent=money(target(save,cur),cur);$('#savingPercent').textContent=save?`约 ${Math.round(save/cn[key]*100)}%`:'暂无价差';
  const visible=expanded?rows:rows.slice(0,7);$('#priceList').innerHTML=visible.map((m,i)=>rowHtml(m,i,cur,key,cn[key])).join('')||'<div class="price-row">没有匹配的市场</div>';
@@ -73,6 +74,7 @@ function render(){
  const url=new URL(location);url.searchParams.set('product',p.n);history.replaceState({},'',url);
 }
 function rowHtml(m,i,cur,key,cnValue){const retail=target(m.usdRetail,cur),after=target(m.usdRefund,cur),refundable=m.usdRefund<m.usdRetail-.01,delta=target(cnValue-m[key],cur);const comparison=m.n==='中国大陆'?'中国基准':delta>0?`比中国省 ${money(delta,cur)}`:delta<0?`比中国贵 ${money(Math.abs(delta),cur)}`:'与中国相同';return `<div class="price-row"><div class="rank ${i===0?'top':''}">${i+1}</div><div class="market"><span class="flag">${m.flag}</span><div><strong>${m.n}</strong><small>${m.en}</small></div></div><div class="cell"><span class="tax-tag ${refundable?'yes':''}">${refundable?'可退税':'不可退税'}</span><small>${m.note}</small></div><div class="cell"><span>${money(retail,cur)}</span><small>含税价</small></div><div class="cell main ${i===0?'best':''}"><strong>${money(mode==='refund'?after:retail,cur)}</strong><small>${mode==='refund'?'估算退税后':'当地含税价格'} · ${money(mode==='refund'?m.refund:m.retail,m.cur)}</small><small class="china-compare ${delta>0?'save':delta<0?'over':''}">${comparison}</small></div></div>`}
-$('#categorySelect').addEventListener('change',e=>{renderProductOptions(e.target.value);render()});$('#productSelect').addEventListener('change',render);$('#currencySelect').addEventListener('change',render);$('#marketSearch').addEventListener('input',render);
+$('#categorySelect').addEventListener('change',e=>{renderProductOptions(e.target.value);window.ATLAS_CONFIG.reset();render()});$('#productSelect').addEventListener('change',()=>{window.ATLAS_CONFIG.reset();render()});$('#currencySelect').addEventListener('change',render);$('#marketSearch').addEventListener('input',render);
+$('#configOptions').addEventListener('click',e=>{const button=e.target.closest('[data-config-group]');if(!button||button.disabled)return;window.ATLAS_CONFIG.select(button.dataset.configGroup,button.dataset.configValue);render()});
 document.querySelectorAll('.segmented button').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.segmented .active').classList.remove('active');b.classList.add('active');mode=b.dataset.mode;render()}));
 $('#showAll').addEventListener('click',()=>{expanded=!expanded;render()});$('#shareBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.href)}catch{}$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),1600)});init();

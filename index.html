@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="official.css" />
   <link rel="stylesheet" href="comparison.css" />
+  <link rel="stylesheet" href="configurator.css" />
 </head>
 <body>
   <div class="grain"></div>
@@ -46,6 +47,14 @@
         <button id="shareBtn" class="share-btn" aria-label="复制当前比较链接">↗ <span>分享比较</span></button>
       </div>
 
+      <div class="compare-layout">
+        <aside class="configurator">
+          <div class="config-heading"><span class="kicker">BUILD YOURS</span><h3>选择配置</h3><p>配置变化会立即重算全球价格。</p></div>
+          <div id="configOptions"></div>
+          <div class="config-base"><span>美国官网基准价</span><strong id="configBasePrice">—</strong></div>
+        </aside>
+
+        <div class="results-panel">
       <div class="summary-row">
         <div><span class="kicker">当前比较</span><h2 id="currentProduct">iPhone 17e</h2><p id="currentSpec">256GB · 官网在售基准配置</p><a class="official-link" id="officialLink" href="https://www.apple.com/shop/buy-iphone/iphone-17e" target="_blank" rel="noopener">✓ Apple 官网在售 <span>↗</span></a></div>
         <div class="best-card"><span>全球低价</span><strong id="bestPrice">—</strong><small id="bestMarket">—</small></div>
@@ -61,6 +70,8 @@
 
       <div class="price-list" id="priceList"></div>
       <button class="show-all" id="showAll">显示全部市场 <span>↓</span></button>
+        </div>
+      </div>
     </section>
 
     <section class="method" id="method">
@@ -78,6 +89,7 @@
   <footer><a class="brand" href="#"><span class="brand-mark">果</span><span>果价地图</span></a><p>买对地方，也买得明白。</p><span>数据原型 · 非 Apple 官方网站</span></footer>
   <div class="toast" id="toast">比较链接已复制</div>
   <script src="data-status.js"></script>
+  <script src="configurator.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
