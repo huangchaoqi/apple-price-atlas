@@ -33,26 +33,30 @@ const products=[
 ];
 const markets=[
  {n:'美国',en:'United States',flag:'🇺🇸',cur:'USD',rate:1,tax:0,refund:0,adj:1,note:'官网标价 · 免税州口径'},
- {n:'日本',en:'Japan',flag:'🇯🇵',cur:'JPY',rate:161.23,tax:.10,refund:.081,adj:.94,note:'游客免税估算'},
- {n:'韩国',en:'South Korea',flag:'🇰🇷',cur:'KRW',rate:1531,tax:.10,refund:.07,adj:.9814,note:'指定门店游客退税估算'},
- {n:'中国香港',en:'Hong Kong',flag:'🇭🇰',cur:'HKD',rate:7.84,tax:0,refund:0,adj:1.0861,note:'无增值税或销售税'},
- {n:'中国台湾',en:'Taiwan',flag:'🇹🇼',cur:'TWD',rate:31.65,tax:.05,refund:.041,adj:1.1003,note:'境外旅客退税净额估算'},
- {n:'新加坡',en:'Singapore',flag:'🇸🇬',cur:'SGD',rate:1.29,tax:.09,refund:.055,adj:1.1261,note:'eTRS 含手续费估算'},
- {n:'马来西亚',en:'Malaysia',flag:'🇲🇾',cur:'MYR',rate:4.13,tax:.10,refund:0,adj:1.1018,note:'目前无游客零售退税'},
- {n:'泰国',en:'Thailand',flag:'🇹🇭',cur:'THB',rate:32.88,tax:.07,refund:.05,adj:1.0866,note:'VAT Refund 含手续费估算'},
- {n:'越南',en:'Vietnam',flag:'🇻🇳',cur:'VND',rate:26421,tax:.08,refund:.063,adj:1.0531,note:'指定退税点净额估算'},
- {n:'澳大利亚',en:'Australia',flag:'🇦🇺',cur:'AUD',rate:1.51,tax:.10,refund:.091,adj:1.02,note:'TRS 估算'},
- {n:'阿联酋',en:'United Arab Emirates',flag:'🇦🇪',cur:'AED',rate:3.67,tax:.05,refund:.035,adj:1.03,note:'游客退税估算'},
- {n:'瑞士',en:'Switzerland',flag:'🇨🇭',cur:'CHF',rate:.82,tax:.081,refund:.055,adj:1.06,note:'含手续费估算'},
- {n:'德国',en:'Germany',flag:'🇩🇪',cur:'EUR',rate:.92,tax:.19,refund:.105,adj:1.06,note:'退税服务估算'},
- {n:'法国',en:'France',flag:'🇫🇷',cur:'EUR',rate:.92,tax:.20,refund:.11,adj:1.07,note:'退税服务估算'},
- {n:'中国大陆',en:'Mainland China',flag:'🇨🇳',cur:'CNY',rate:7.18,tax:.13,refund:.09,adj:1.06,note:'境外游客离境退税估算'},
- {n:'加拿大',en:'Canada',flag:'🇨🇦',cur:'CAD',rate:1.37,tax:.05,refund:0,adj:1.03,note:'按 5% GST'},
- {n:'英国',en:'United Kingdom',flag:'🇬🇧',cur:'GBP',rate:.78,tax:.20,refund:0,adj:1.08,note:'游客无零售退税'}
+ {n:'日本',en:'Japan',flag:'🇯🇵',cur:'JPY',rate:161.23,tax:.10,refund:.081,adj:.92251,note:'官网含税价 · 游客免税估算'},
+ {n:'韩国',en:'South Korea',flag:'🇰🇷',cur:'KRW',rate:1531,tax:.10,refund:.07,adj:.96713,note:'官网含税价 · 指定门店退税估算'},
+ {n:'中国香港',en:'Hong Kong',flag:'🇭🇰',cur:'HKD',rate:7.84,tax:0,refund:0,adj:1.09118,note:'官网价 · 无增值税或销售税'},
+ {n:'中国台湾',en:'Taiwan',flag:'🇹🇼',cur:'TWD',rate:31.65,tax:.05,refund:.041,adj:1.0926,note:'官网含税价 · 退税净额估算'},
+ {n:'新加坡',en:'Singapore',flag:'🇸🇬',cur:'SGD',rate:1.29,tax:.09,refund:.055,adj:1.13121,note:'官网含税价 · eTRS 估算'},
+ {n:'马来西亚',en:'Malaysia',flag:'🇲🇾',cur:'MYR',rate:4.13,tax:.10,refund:0,adj:1.10108,note:'官网含税价 · 无游客零售退税'},
+ {n:'泰国',en:'Thailand',flag:'🇹🇭',cur:'THB',rate:32.88,tax:.07,refund:.05,adj:1.1353,note:'官网含税价 · VAT Refund 估算'},
+ {n:'越南',en:'Vietnam',flag:'🇻🇳',cur:'VND',rate:26421,tax:.08,refund:.063,adj:1.11606,note:'官网含税价 · 指定退税点估算'},
+ {n:'澳大利亚',en:'Australia',flag:'🇦🇺',cur:'AUD',rate:1.42564,tax:.10,refund:.091,adj:1.15988,note:'官网含税价 · TRS 估算'},
+ {n:'阿联酋',en:'United Arab Emirates',flag:'🇦🇪',cur:'AED',rate:3.67,tax:.05,refund:.035,adj:1.10956,note:'官网含税价 · 游客退税估算'},
+ {n:'瑞士',en:'Switzerland',flag:'🇨🇭',cur:'CHF',rate:.80649,tax:.081,refund:.055,adj:1.14703,note:'官网含税价 · 含手续费估算'},
+ {n:'德国',en:'Germany',flag:'🇩🇪',cur:'EUR',rate:.87198,tax:.19,refund:.105,adj:1.13909,note:'官网含税价 · 退税服务估算'},
+ {n:'法国',en:'France',flag:'🇫🇷',cur:'EUR',rate:.87198,tax:.20,refund:.11,adj:1.15569,note:'官网含税价 · 退税服务估算'},
+ {n:'中国大陆',en:'Mainland China',flag:'🇨🇳',cur:'CNY',rate:6.789,tax:.13,refund:.09,adj:1.06736,note:'官网含税价 · 境外游客退税估算'},
+ {n:'加拿大',en:'Canada',flag:'🇨🇦',cur:'CAD',rate:1.4152,tax:0,refund:0,adj:1.02809,note:'官网税前价 · 销售税依省份另计'},
+ {n:'英国',en:'United Kingdom',flag:'🇬🇧',cur:'GBP',rate:.75593,tax:.20,refund:0,adj:1.10239,note:'官网含税价 · 英国本土无游客零售退税'}
 ];
+// 2026-06-22 逐地区 Apple 官网核对：iPhone 17 Pro 256GB 当地标价。
+// 该锚点以当地货币固定保存，不会因每周汇率变化而错误漂移。
+const officialIPhone17Pro=window.ATLAS_STATUS?.officialIPhone17Pro||{美国:1099,日本:179800,韩国:1790000,中国香港:9399,中国台湾:39900,新加坡:1749,马来西亚:5499,泰国:43900,越南:34999000,澳大利亚:1999,阿联酋:4699,瑞士:1099,德国:1299,法国:1329,中国大陆:8999,加拿大:1599,英国:1099};
+markets.forEach(m=>m.official17Pro=officialIPhone17Pro[m.n]);
 const fx=window.ATLAS_STATUS?.fx||{USD:1,CNY:7.18,HKD:7.81,AUD:1.51}; markets.forEach(m=>{if(fx[m.cur])m.rate=fx[m.cur]}); let mode='refund',expanded=false;
 const $=s=>document.querySelector(s), money=(v,c)=>new Intl.NumberFormat('zh-CN',{style:'currency',currency:c,maximumFractionDigits:c==='JPY'?0:0}).format(v);
-function localPrice(p,m){const pre=p.usd*m.adj*m.rate;const retail=pre*(1+m.tax);return {retail,refund:retail*(1-m.refund),usdRetail:retail/m.rate,usdRefund:retail*(1-m.refund)/m.rate}}
+function localPrice(p,m){const modeledRetail=p.usd*m.adj*m.rate*(1+m.tax);const optionDelta=p.usd-1099;const retail=p.n==='iPhone 17 Pro'&&m.official17Pro?m.official17Pro+optionDelta*m.adj*m.rate*(1+m.tax):modeledRetail;return {retail,refund:retail*(1-m.refund),usdRetail:retail/m.rate,usdRefund:retail*(1-m.refund)/m.rate}}
 function target(v,cur){return v*fx[cur]}
 function init(){
  const cats=['全部产品',...new Set(products.map(p=>p.c))]; $('#categorySelect').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
@@ -64,7 +68,7 @@ function renderProductOptions(cat){const list=cat==='全部产品'?products:prod
 function render(){
  const p=products.find(x=>x.n===$('#productSelect').value)||products[3],cur=$('#currencySelect').value,q=$('#marketSearch').value.trim().toLowerCase();
  const config=window.ATLAS_CONFIG.ensure(p),pricedProduct={...p,usd:Math.max(1,p.usd+config.delta)};$('#configOptions').innerHTML=window.ATLAS_CONFIG.render(p);$('#configBasePrice').textContent=money(pricedProduct.usd,'USD');
- $('#currentProduct').textContent=p.n;$('#currentSpec').textContent=config.summary;$('#officialLink').href=p.u;$('#productIcon').textContent={iPhone:'▯',Mac:'▰',显示器:'▱',iPad:'▭',Watch:'◉',AirPods:'◌',Vision:'∞'}[p.c];
+ const dataLabel=p.n==='iPhone 17 Pro'&&config.delta===0?'17 个地区官网价格已核对':'按官网基准配置推算';$('#currentProduct').textContent=p.n;$('#currentSpec').textContent=config.summary+' · '+dataLabel;$('#officialLink').href=p.u;$('#productIcon').textContent={iPhone:'▯',Mac:'▰',显示器:'▱',iPad:'▭',Watch:'◉',AirPods:'◌',Vision:'∞'}[p.c];
  let rows=markets.map(m=>({...m,...localPrice(pricedProduct,m)})).filter(m=>(m.n+m.en).toLowerCase().includes(q)).sort((a,b)=>a['usd'+(mode==='refund'?'Refund':'Retail')]-b['usd'+(mode==='refund'?'Refund':'Retail')]);
  const best=rows[0],cn=rows.find(x=>x.n==='中国大陆')||markets.map(m=>({...m,...localPrice(pricedProduct,m)})).find(x=>x.n==='中国大陆'),key=mode==='refund'?'usdRefund':'usdRetail';
  $('#bestPrice').textContent=money(target(best[key],cur),cur);$('#bestMarket').textContent=`${best.flag} ${best.n} · ${mode==='refund'?'退税后':'含税'}`;
@@ -73,7 +77,7 @@ function render(){
  $('#showAll').style.display=rows.length>7?'block':'none';$('#showAll').innerHTML=expanded?'收起市场 <span>↑</span>':'显示全部市场 <span>↓</span>';
  const url=new URL(location);url.searchParams.set('product',p.n);history.replaceState({},'',url);
 }
-function rowHtml(m,i,cur,key,cnValue){const retail=target(m.usdRetail,cur),after=target(m.usdRefund,cur),refundable=m.usdRefund<m.usdRetail-.01,delta=target(cnValue-m[key],cur),retailLabel=m.n==='美国'?'官网价（未加销售税）':'含税价';const comparison=m.n==='中国大陆'?'中国基准':delta>0?`比中国省 ${money(delta,cur)}`:delta<0?`比中国贵 ${money(Math.abs(delta),cur)}`:'与中国相同';return `<div class="price-row"><div class="rank ${i===0?'top':''}">${i+1}</div><div class="market"><span class="flag">${m.flag}</span><div><strong>${m.n}</strong><small>${m.en}</small></div></div><div class="cell"><span class="tax-tag ${refundable?'yes':''}">${refundable?'可退税':'不可退税'}</span><small>${m.note}</small></div><div class="cell"><span>${money(retail,cur)}</span><small>${retailLabel}</small></div><div class="cell main ${i===0?'best':''}"><strong>${money(mode==='refund'?after:retail,cur)}</strong><small>${mode==='refund'?'估算退税后':'当地价格'} · ${money(mode==='refund'?m.refund:m.retail,m.cur)}</small><small class="china-compare ${delta>0?'save':delta<0?'over':''}">${comparison}</small></div></div>`}
+function rowHtml(m,i,cur,key,cnValue){const retail=target(m.usdRetail,cur),after=target(m.usdRefund,cur),refundable=m.usdRefund<m.usdRetail-.01,delta=target(cnValue-m[key],cur),retailLabel=['美国','加拿大'].includes(m.n)?'官网价（未加销售税）':'含税价';const comparison=m.n==='中国大陆'?'中国基准':delta>0?`比中国省 ${money(delta,cur)}`:delta<0?`比中国贵 ${money(Math.abs(delta),cur)}`:'与中国相同';return `<div class="price-row"><div class="rank ${i===0?'top':''}">${i+1}</div><div class="market"><span class="flag">${m.flag}</span><div><strong>${m.n}</strong><small>${m.en}</small></div></div><div class="cell"><span class="tax-tag ${refundable?'yes':''}">${refundable?'可退税':'不可退税'}</span><small>${m.note}</small></div><div class="cell"><span>${money(retail,cur)}</span><small>${retailLabel}</small></div><div class="cell main ${i===0?'best':''}"><strong>${money(mode==='refund'?after:retail,cur)}</strong><small>${mode==='refund'?'估算退税后':'当地价格'} · ${money(mode==='refund'?m.refund:m.retail,m.cur)}</small><small class="china-compare ${delta>0?'save':delta<0?'over':''}">${comparison}</small></div></div>`}
 $('#categorySelect').addEventListener('change',e=>{renderProductOptions(e.target.value);window.ATLAS_CONFIG.reset();render()});$('#productSelect').addEventListener('change',()=>{window.ATLAS_CONFIG.reset();render()});$('#currencySelect').addEventListener('change',render);$('#marketSearch').addEventListener('input',render);
 $('#configOptions').addEventListener('click',e=>{const button=e.target.closest('[data-config-group]');if(!button||button.disabled)return;window.ATLAS_CONFIG.select(button.dataset.configGroup,button.dataset.configValue);render()});
 document.querySelectorAll('.segmented button').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.segmented .active').classList.remove('active');b.classList.add('active');mode=b.dataset.mode;render()}));
