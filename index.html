@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="比较 Apple 硬件产品在全球不同国家与地区的含税价及游客退税后价格。" />
+  <title>果价地图 · Apple 全球价格比较</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="official.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">果</span><span>果价地图</span></a>
+    <nav><a href="#compare">价格比较</a><a href="#method">计算方式</a></nav>
+    <div class="update-pill"><i></i><span id="updatedAt">今日已更新</span></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span>APPLE PRICE ATLAS</span><b>全球版</b></div>
+      <h1>同一台设备，<br><em>在哪买更划算？</em></h1>
+      <p>把汇率、消费税和游客退税放在同一张表里。少做心算，多省一点。</p>
+      <div class="hero-meta"><span>覆盖 <strong id="marketCount">12</strong> 个市场</span><span>·</span><span><strong id="productCount">20</strong> 款在售硬件</span><span>·</span><span>每日更新</span></div>
+      <div class="orb orb-a"></div><div class="orb orb-b"></div>
+    </section>
+
+    <section class="compare-shell" id="compare">
+      <div class="control-panel">
+        <div class="field product-field">
+          <label for="productSelect">选择产品</label>
+          <div class="select-wrap"><span id="productIcon">◫</span><select id="productSelect"></select></div>
+        </div>
+        <div class="field">
+          <label for="categorySelect">产品类别</label>
+          <div class="select-wrap"><select id="categorySelect"></select></div>
+        </div>
+        <div class="field">
+          <label for="currencySelect">换算货币</label>
+          <div class="select-wrap"><select id="currencySelect"><option value="CNY">人民币 CNY</option><option value="USD">美元 USD</option><option value="HKD">港币 HKD</option><option value="AUD">澳元 AUD</option></select></div>
+        </div>
+        <button id="shareBtn" class="share-btn" aria-label="复制当前比较链接">↗ <span>分享比较</span></button>
+      </div>
+
+      <div class="summary-row">
+        <div><span class="kicker">当前比较</span><h2 id="currentProduct">iPhone 17e</h2><p id="currentSpec">256GB · 官网在售基准配置</p><a class="official-link" id="officialLink" href="https://www.apple.com/shop/buy-iphone/iphone-17e" target="_blank" rel="noopener">✓ Apple 官网在售 <span>↗</span></a></div>
+        <div class="best-card"><span>全球低价</span><strong id="bestPrice">—</strong><small id="bestMarket">—</small></div>
+        <div class="saving-card"><span>相比中国大陆节省</span><strong id="savingPrice">—</strong><small id="savingPercent">—</small></div>
+      </div>
+
+      <div class="table-tools">
+        <div class="segmented" role="group" aria-label="排序价格口径">
+          <button class="active" data-mode="refund">退税后价格</button><button data-mode="retail">含税价格</button>
+        </div>
+        <label class="search"><span>⌕</span><input id="marketSearch" placeholder="搜索国家或地区" /></label>
+      </div>
+
+      <div class="price-list" id="priceList"></div>
+      <button class="show-all" id="showAll">显示全部市场 <span>↓</span></button>
+    </section>
+
+    <section class="method" id="method">
+      <div><span class="kicker">HOW IT WORKS</span><h2>数字透明，判断才轻松。</h2></div>
+      <div class="method-grid">
+        <article><b>01</b><h3>官网白名单</h3><p>只收录 Apple 官方商店当前提供购买入口的硬件；官网下架后即移出比较。</p></article>
+        <article><b>02</b><h3>税费校准</h3><p>区分含税标价与结账另计税市场；美国价格按免消费税地区口径展示。</p></article>
+        <article><b>03</b><h3>游客退税估算</h3><p>扣除不可退部分及常见手续费，给出更接近实际到手的估算值。</p></article>
+        <article><b>04</b><h3>统一汇率</h3><p>每天以同一时点汇率换算，避免汇率时间差扭曲排名。</p></article>
+      </div>
+      <p class="disclaimer">价格与退税为信息参考，不构成购买或税务建议。实际金额受门店库存、支付汇率、退税服务商、离境方式及当地政策影响。</p>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">果</span><span>果价地图</span></a><p>买对地方，也买得明白。</p><span>数据原型 · 非 Apple 官方网站</span></footer>
+  <div class="toast" id="toast">比较链接已复制</div>
+  <script src="app.js"></script>
+</body>
+</html>
