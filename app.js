@@ -56,7 +56,7 @@ const officialIPhone17Pro=window.ATLAS_STATUS?.officialIPhone17Pro||{美国:1099
 markets.forEach(m=>m.official17Pro=officialIPhone17Pro[m.n]);
 const fx=window.ATLAS_STATUS?.fx||{USD:1,CNY:7.18,HKD:7.81,AUD:1.51}; markets.forEach(m=>{if(fx[m.cur])m.rate=fx[m.cur]}); let mode='refund',expanded=false;
 const $=s=>document.querySelector(s), money=(v,c)=>new Intl.NumberFormat('zh-CN',{style:'currency',currency:c,maximumFractionDigits:c==='JPY'?0:0}).format(v);
-function localPrice(p,m){const modeledRetail=p.usd*m.adj*m.rate*(1+m.tax);const optionDelta=p.usd-1099;const retail=p.n==='iPhone 17 Pro'&&m.official17Pro?m.official17Pro+optionDelta*m.adj*m.rate*(1+m.tax):modeledRetail;return {retail,refund:retail*(1-m.refund),usdRetail:retail/m.rate,usdRefund:retail*(1-m.refund)/m.rate}}
+function localPrice(p,m){const modeledRetail=p.usd*m.adj*m.rate*(1+m.tax);const catalogBase=products.find(x=>x.n===p.n)?.usd??p.usd;const optionDelta=p.usd-catalogBase;const automatedBase=window.ATLAS_STATUS?.officialBasePrices?.[p.n]?.[m.n];const legacyBase=p.n==='iPhone 17 Pro'?m.official17Pro:null;const officialBase=automatedBase??legacyBase;const retail=officialBase?officialBase+optionDelta*m.adj*m.rate*(1+m.tax):modeledRetail;return {retail,refund:retail*(1-m.refund),usdRetail:retail/m.rate,usdRefund:retail*(1-m.refund)/m.rate}}
 function target(v,cur){return v*fx[cur]}
 function init(){
  const cats=['全部产品',...new Set(products.map(p=>p.c))]; $('#categorySelect').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
@@ -68,7 +68,7 @@ function renderProductOptions(cat){const list=cat==='全部产品'?products:prod
 function render(){
  const p=products.find(x=>x.n===$('#productSelect').value)||products[3],cur=$('#currencySelect').value,q=$('#marketSearch').value.trim().toLowerCase();
  const config=window.ATLAS_CONFIG.ensure(p),pricedProduct={...p,usd:Math.max(1,p.usd+config.delta)};$('#configOptions').innerHTML=window.ATLAS_CONFIG.render(p);$('#configBasePrice').textContent=money(pricedProduct.usd,'USD');
- const dataLabel=p.n==='iPhone 17 Pro'&&config.delta===0?'17 个地区官网价格已核对':'按官网基准配置推算';$('#currentProduct').textContent=p.n;$('#currentSpec').textContent=config.summary+' · '+dataLabel;$('#officialLink').href=p.u;$('#productIcon').textContent={iPhone:'▯',Mac:'▰',显示器:'▱',iPad:'▭',Watch:'◉',AirPods:'◌',Vision:'∞'}[p.c];
+ const exactMarkets=Object.keys(window.ATLAS_STATUS?.officialBasePrices?.[p.n]||{}).length;const dataLabel=config.delta===0&&exactMarkets?`${exactMarkets} 个地区官网价格自动采集`:'配置升级价按官网基准推算';$('#currentProduct').textContent=p.n;$('#currentSpec').textContent=config.summary+' · '+dataLabel;$('#officialLink').href=p.u;$('#productIcon').textContent={iPhone:'▯',Mac:'▰',显示器:'▱',iPad:'▭',Watch:'◉',AirPods:'◌',Vision:'∞'}[p.c];
  let rows=markets.map(m=>({...m,...localPrice(pricedProduct,m)})).filter(m=>(m.n+m.en).toLowerCase().includes(q)).sort((a,b)=>a['usd'+(mode==='refund'?'Refund':'Retail')]-b['usd'+(mode==='refund'?'Refund':'Retail')]);
  const best=rows[0],cn=rows.find(x=>x.n==='中国大陆')||markets.map(m=>({...m,...localPrice(pricedProduct,m)})).find(x=>x.n==='中国大陆'),key=mode==='refund'?'usdRefund':'usdRetail';
  $('#bestPrice').textContent=money(target(best[key],cur),cur);$('#bestMarket').textContent=`${best.flag} ${best.n} · ${mode==='refund'?'退税后':'含税'}`;
