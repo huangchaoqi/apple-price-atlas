@@ -190,7 +190,8 @@ async function buildOfficialBasePrices(products, previous = {}) {
     if (price === null && task.product.category === 'AirPods') price = await fetchDynamicMarketingPrice(task.product, task.url, html);
     return { ...task, price };
   });
-  const matrix = JSON.parse(JSON.stringify(previous)); let successful = 0;
+  const matrix = {}; let successful = 0;
+  for (const product of products) if (previous[product.name]) matrix[product.name] = JSON.parse(JSON.stringify(previous[product.name]));
   for (const result of results) if (result.price !== null) {
     matrix[result.product.name] ||= {};
     const prior = matrix[result.product.name][result.market];

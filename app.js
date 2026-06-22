@@ -14,22 +14,12 @@ const products=[
  {c:'Mac',n:'iMac 24″',s:'基准配置',usd:1299,u:'https://www.apple.com/shop/buy-mac/imac'},
  {c:'Mac',n:'Mac mini',s:'基准配置',usd:599,u:'https://www.apple.com/shop/buy-mac/mac-mini'},
  {c:'Mac',n:'Mac Studio',s:'基准配置',usd:1999,u:'https://www.apple.com/shop/buy-mac/mac-studio'},
- {c:'显示器',n:'Studio Display',s:'标准玻璃',usd:1599,u:'https://www.apple.com/shop/buy-mac/studio-display'},
- {c:'显示器',n:'Studio Display XDR',s:'标准玻璃',usd:4999,u:'https://www.apple.com/shop/buy-mac/studio-display-xdr'},
  {c:'iPad',n:'iPad',s:'A16 · 128GB · Wi‑Fi',usd:349,u:'https://www.apple.com/shop/buy-ipad/ipad'},
  {c:'iPad',n:'iPad mini',s:'A17 Pro · 128GB · Wi‑Fi',usd:499,u:'https://www.apple.com/shop/buy-ipad/ipad-mini'},
  {c:'iPad',n:'iPad Air 11″',s:'M4 · 128GB · Wi‑Fi',usd:599,u:'https://www.apple.com/shop/buy-ipad/ipad-air'},
  {c:'iPad',n:'iPad Air 13″',s:'M4 · 128GB · Wi‑Fi',usd:799,u:'https://www.apple.com/shop/buy-ipad/ipad-air'},
  {c:'iPad',n:'iPad Pro 11″',s:'M5 · 256GB · Wi‑Fi',usd:999,u:'https://www.apple.com/shop/buy-ipad/ipad-pro'},
- {c:'iPad',n:'iPad Pro 13″',s:'M5 · 256GB · Wi‑Fi',usd:1299,u:'https://www.apple.com/shop/buy-ipad/ipad-pro'},
- {c:'Watch',n:'Apple Watch SE 3',s:'GPS · 40mm',usd:249,u:'https://www.apple.com/shop/buy-watch/apple-watch-se'},
- {c:'Watch',n:'Apple Watch Series 11',s:'GPS · 42mm',usd:399,u:'https://www.apple.com/shop/buy-watch/apple-watch'},
- {c:'Watch',n:'Apple Watch Ultra 3',s:'GPS + 蜂窝 · 49mm',usd:799,u:'https://www.apple.com/shop/buy-watch/apple-watch-ultra/apple-watch-ultra-3-gps-cellular-49mm-titanium-case'},
- {c:'AirPods',n:'AirPods 4',s:'标准款',usd:129,u:'https://www.apple.com/airpods-4/'},
- {c:'AirPods',n:'AirPods 4（主动降噪）',s:'主动降噪款',usd:179,u:'https://www.apple.com/airpods-4/'},
- {c:'AirPods',n:'AirPods Pro 3',s:'MagSafe 充电盒',usd:249,u:'https://www.apple.com/airpods-pro/'},
- {c:'AirPods',n:'AirPods Max 2',s:'USB‑C',usd:549,u:'https://www.apple.com/airpods-max/'},
- {c:'Vision',n:'Apple Vision Pro',s:'256GB',usd:3499,u:'https://www.apple.com/shop/buy-vision'}
+ {c:'iPad',n:'iPad Pro 13″',s:'M5 · 256GB · Wi‑Fi',usd:1299,u:'https://www.apple.com/shop/buy-ipad/ipad-pro'}
 ];
 const markets=[
  {n:'美国',en:'United States',flag:'🇺🇸',cur:'USD',rate:1,tax:0,refund:0,adj:1,note:'官网标价 · 免税州口径'},
