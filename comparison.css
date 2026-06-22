@@ -1,0 +1,7 @@
+.china-compare {
+  margin-top: 6px !important;
+  font-weight: 700;
+}
+
+.china-compare.save { color: #1f6b4f !important; }
+.china-compare.over { color: #b45a37 !important; }

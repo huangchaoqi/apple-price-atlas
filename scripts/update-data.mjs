@@ -23,12 +23,12 @@ async function fetchJson(url) {
 
 async function updateRates(previous) {
   try {
-    const data = await fetchJson('https://api.frankfurter.app/latest?from=USD');
+    const data = await fetchJson('https://open.er-api.com/v6/latest/USD');
     const next = { ...previous, USD: 1 };
     for (const code of Object.keys(next)) {
       if (Number.isFinite(data.rates?.[code]) && data.rates[code] > 0) next[code] = data.rates[code];
     }
-    return { rates: next, source: 'Frankfurter / ECB' };
+    return { rates: next, source: 'ExchangeRate-API' };
   } catch (error) {
     console.warn(`Exchange-rate update failed; retaining prior rates. ${error.message}`);
     return { rates: previous, source: 'previous successful snapshot' };

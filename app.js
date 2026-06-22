@@ -33,9 +33,14 @@ const products=[
 ];
 const markets=[
  {n:'美国',en:'United States',flag:'🇺🇸',cur:'USD',rate:1,tax:0,refund:0,adj:.99,note:'免税州估算'},
- {n:'日本',en:'Japan',flag:'🇯🇵',cur:'JPY',rate:145.6,tax:.10,refund:.081,adj:.94,note:'游客免税估算'},
- {n:'中国香港',en:'Hong Kong',flag:'🇭🇰',cur:'HKD',rate:7.81,tax:0,refund:0,adj:1.00,note:'无消费税'},
- {n:'新加坡',en:'Singapore',flag:'🇸🇬',cur:'SGD',rate:1.29,tax:.09,refund:.055,adj:1.04,note:'含手续费估算'},
+ {n:'日本',en:'Japan',flag:'🇯🇵',cur:'JPY',rate:161.23,tax:.10,refund:.081,adj:.94,note:'游客免税估算'},
+ {n:'韩国',en:'South Korea',flag:'🇰🇷',cur:'KRW',rate:1531,tax:.10,refund:.07,adj:.9814,note:'指定门店游客退税估算'},
+ {n:'中国香港',en:'Hong Kong',flag:'🇭🇰',cur:'HKD',rate:7.84,tax:0,refund:0,adj:1.0861,note:'无增值税或销售税'},
+ {n:'中国台湾',en:'Taiwan',flag:'🇹🇼',cur:'TWD',rate:31.65,tax:.05,refund:.041,adj:1.1003,note:'境外旅客退税净额估算'},
+ {n:'新加坡',en:'Singapore',flag:'🇸🇬',cur:'SGD',rate:1.29,tax:.09,refund:.055,adj:1.1261,note:'eTRS 含手续费估算'},
+ {n:'马来西亚',en:'Malaysia',flag:'🇲🇾',cur:'MYR',rate:4.13,tax:.10,refund:0,adj:1.1018,note:'目前无游客零售退税'},
+ {n:'泰国',en:'Thailand',flag:'🇹🇭',cur:'THB',rate:32.88,tax:.07,refund:.05,adj:1.0866,note:'VAT Refund 含手续费估算'},
+ {n:'越南',en:'Vietnam',flag:'🇻🇳',cur:'VND',rate:26421,tax:.08,refund:.063,adj:1.0531,note:'指定退税点净额估算'},
  {n:'澳大利亚',en:'Australia',flag:'🇦🇺',cur:'AUD',rate:1.51,tax:.10,refund:.091,adj:1.02,note:'TRS 估算'},
  {n:'阿联酋',en:'United Arab Emirates',flag:'🇦🇪',cur:'AED',rate:3.67,tax:.05,refund:.035,adj:1.03,note:'游客退税估算'},
  {n:'瑞士',en:'Switzerland',flag:'🇨🇭',cur:'CHF',rate:.82,tax:.081,refund:.055,adj:1.06,note:'含手续费估算'},
@@ -63,11 +68,11 @@ function render(){
  const best=rows[0],cn=rows.find(x=>x.n==='中国大陆')||markets.map(m=>({...m,...localPrice(p,m)})).find(x=>x.n==='中国大陆'),key=mode==='refund'?'usdRefund':'usdRetail';
  $('#bestPrice').textContent=money(target(best[key],cur),cur);$('#bestMarket').textContent=`${best.flag} ${best.n} · ${mode==='refund'?'退税后':'含税'}`;
  const save=Math.max(0,cn[key]-best[key]);$('#savingPrice').textContent=money(target(save,cur),cur);$('#savingPercent').textContent=save?`约 ${Math.round(save/cn[key]*100)}%`:'暂无价差';
- const visible=expanded?rows:rows.slice(0,7);$('#priceList').innerHTML=visible.map((m,i)=>rowHtml(m,i,cur,key)).join('')||'<div class="price-row">没有匹配的市场</div>';
+ const visible=expanded?rows:rows.slice(0,7);$('#priceList').innerHTML=visible.map((m,i)=>rowHtml(m,i,cur,key,cn[key])).join('')||'<div class="price-row">没有匹配的市场</div>';
  $('#showAll').style.display=rows.length>7?'block':'none';$('#showAll').innerHTML=expanded?'收起市场 <span>↑</span>':'显示全部市场 <span>↓</span>';
  const url=new URL(location);url.searchParams.set('product',p.n);history.replaceState({},'',url);
 }
-function rowHtml(m,i,cur,key){const retail=target(m.usdRetail,cur),after=target(m.usdRefund,cur),refundable=m.usdRefund<m.usdRetail-.01;return `<div class="price-row"><div class="rank ${i===0?'top':''}">${i+1}</div><div class="market"><span class="flag">${m.flag}</span><div><strong>${m.n}</strong><small>${m.en}</small></div></div><div class="cell"><span class="tax-tag ${refundable?'yes':''}">${refundable?'可退税':'不可退税'}</span><small>${m.note}</small></div><div class="cell"><span>${money(retail,cur)}</span><small>含税价</small></div><div class="cell main ${i===0?'best':''}"><strong>${money(mode==='refund'?after:retail,cur)}</strong><small>${mode==='refund'?'估算退税后':'当地含税价格'} · ${money(mode==='refund'?m.refund:m.retail,m.cur)}</small></div></div>`}
+function rowHtml(m,i,cur,key,cnValue){const retail=target(m.usdRetail,cur),after=target(m.usdRefund,cur),refundable=m.usdRefund<m.usdRetail-.01,delta=target(cnValue-m[key],cur);const comparison=m.n==='中国大陆'?'中国基准':delta>0?`比中国省 ${money(delta,cur)}`:delta<0?`比中国贵 ${money(Math.abs(delta),cur)}`:'与中国相同';return `<div class="price-row"><div class="rank ${i===0?'top':''}">${i+1}</div><div class="market"><span class="flag">${m.flag}</span><div><strong>${m.n}</strong><small>${m.en}</small></div></div><div class="cell"><span class="tax-tag ${refundable?'yes':''}">${refundable?'可退税':'不可退税'}</span><small>${m.note}</small></div><div class="cell"><span>${money(retail,cur)}</span><small>含税价</small></div><div class="cell main ${i===0?'best':''}"><strong>${money(mode==='refund'?after:retail,cur)}</strong><small>${mode==='refund'?'估算退税后':'当地含税价格'} · ${money(mode==='refund'?m.refund:m.retail,m.cur)}</small><small class="china-compare ${delta>0?'save':delta<0?'over':''}">${comparison}</small></div></div>`}
 $('#categorySelect').addEventListener('change',e=>{renderProductOptions(e.target.value);render()});$('#productSelect').addEventListener('change',render);$('#currencySelect').addEventListener('change',render);$('#marketSearch').addEventListener('input',render);
 document.querySelectorAll('.segmented button').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.segmented .active').classList.remove('active');b.classList.add('active');mode=b.dataset.mode;render()}));
 $('#showAll').addEventListener('click',()=>{expanded=!expanded;render()});$('#shareBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(location.href)}catch{}$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),1600)});init();
