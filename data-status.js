@@ -1,5 +1,5 @@
 window.ATLAS_STATUS = {
-  "updatedAt": "2026-08-24T03:11:21.494Z",
+  "updatedAt": "2026-08-31T08:33:05.870Z",
   "fxSource": "ExchangeRate-API",
   "officialLinksHealthy": 15,
   "officialLinksChecked": 15,
@@ -248,22 +248,22 @@ window.ATLAS_STATUS = {
       "英国": 1499
     },
     "Mac mini": {
-      "美国": 799,
-      "日本": 134800,
-      "韩国": 1349000,
-      "中国香港": 6499,
-      "中国台湾": 26900,
-      "新加坡": 1149,
-      "马来西亚": 3299,
-      "泰国": 28900,
+      "美国": 899,
+      "日本": 149800,
+      "韩国": 1499000,
+      "中国香港": 7299,
+      "中国台湾": 29900,
+      "新加坡": 1299,
+      "马来西亚": 3799,
+      "泰国": 32900,
       "澳大利亚": 1299,
-      "阿联酋": 3299,
-      "瑞士": 799,
-      "德国": 949,
-      "法国": 949,
-      "中国大陆": 5999,
-      "加拿大": 1099,
-      "英国": 799
+      "阿联酋": 3799,
+      "瑞士": 899,
+      "德国": 1049,
+      "法国": 1049,
+      "中国大陆": 6999,
+      "加拿大": 1249,
+      "英国": 899
     },
     "Mac Studio": {
       "美国": 2499,
@@ -507,7 +507,7 @@ window.ATLAS_STATUS = {
       "c": "Mac",
       "n": "Mac mini",
       "s": "基准配置",
-      "usd": 799,
+      "usd": 899,
       "u": "https://www.apple.com/shop/buy-mac/mac-mini"
     },
     {
@@ -570,87 +570,87 @@ window.ATLAS_STATUS = {
   "catalogHealth": {
     "iPhone 17e": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPhone 17": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPhone Air": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPhone 17 Pro": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPhone 17 Pro Max": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPhone 16": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "MacBook Neo": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "MacBook Air 13″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "MacBook Air 15″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "MacBook Pro 14″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "MacBook Pro 16″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iMac 24″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "Mac mini": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "Mac Studio": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPad": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPad mini": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPad Air 11″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPad Air 13″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPad Pro 11″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPad Pro 13″": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "iPhone 16 Plus": {
       "misses": 0,
-      "lastChecked": "2026-08-24T03:10:52.184Z"
+      "lastChecked": "2026-08-31T08:32:43.034Z"
     },
     "MacBook Air": {
       "misses": 0,
@@ -671,20 +671,20 @@ window.ATLAS_STATUS = {
   "discoveryPages": 18,
   "fx": {
     "USD": 1,
-    "CNY": 6.729114,
-    "HKD": 7.839804,
-    "JPY": 158.906325,
-    "KRW": 1385.479002,
-    "SGD": 1.26954,
-    "THB": 32.659832,
-    "MYR": 4.04086,
-    "TWD": 31.798233,
-    "VND": 26052.840095,
-    "AUD": 1.395188,
+    "CNY": 6.735761,
+    "HKD": 7.84042,
+    "JPY": 160.045067,
+    "KRW": 1376.596684,
+    "SGD": 1.273831,
+    "THB": 33.110487,
+    "MYR": 4.025875,
+    "TWD": 31.649299,
+    "VND": 26006.374497,
+    "AUD": 1.395915,
     "AED": 3.6725,
-    "CHF": 0.800848,
-    "EUR": 0.85618,
-    "CAD": 1.378517,
-    "GBP": 0.732945
+    "CHF": 0.808043,
+    "EUR": 0.862295,
+    "CAD": 1.389176,
+    "GBP": 0.738249
   }
 };
