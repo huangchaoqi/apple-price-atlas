@@ -1,5 +1,5 @@
 window.ATLAS_STATUS = {
-  "updatedAt": "2026-08-31T08:33:05.870Z",
+  "updatedAt": "2026-09-07T07:15:51.326Z",
   "fxSource": "ExchangeRate-API",
   "officialLinksHealthy": 15,
   "officialLinksChecked": 15,
@@ -570,87 +570,87 @@ window.ATLAS_STATUS = {
   "catalogHealth": {
     "iPhone 17e": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.486Z"
     },
     "iPhone 17": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPhone Air": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPhone 17 Pro": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPhone 17 Pro Max": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPhone 16": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "MacBook Neo": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "MacBook Air 13″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "MacBook Air 15″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "MacBook Pro 14″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "MacBook Pro 16″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iMac 24″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "Mac mini": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "Mac Studio": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPad": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPad mini": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPad Air 11″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPad Air 13″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPad Pro 11″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPad Pro 13″": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "iPhone 16 Plus": {
       "misses": 0,
-      "lastChecked": "2026-08-31T08:32:43.034Z"
+      "lastChecked": "2026-09-07T07:14:55.487Z"
     },
     "MacBook Air": {
       "misses": 0,
@@ -671,20 +671,20 @@ window.ATLAS_STATUS = {
   "discoveryPages": 18,
   "fx": {
     "USD": 1,
-    "CNY": 6.735761,
-    "HKD": 7.84042,
-    "JPY": 160.045067,
-    "KRW": 1376.596684,
-    "SGD": 1.273831,
-    "THB": 33.110487,
-    "MYR": 4.025875,
-    "TWD": 31.649299,
-    "VND": 26006.374497,
-    "AUD": 1.395915,
+    "CNY": 6.719397,
+    "HKD": 7.841017,
+    "JPY": 156.177011,
+    "KRW": 1346.56492,
+    "SGD": 1.267101,
+    "THB": 32.921586,
+    "MYR": 4.044337,
+    "TWD": 31.631847,
+    "VND": 25999.419056,
+    "AUD": 1.387683,
     "AED": 3.6725,
-    "CHF": 0.808043,
-    "EUR": 0.862295,
-    "CAD": 1.389176,
-    "GBP": 0.738249
+    "CHF": 0.809887,
+    "EUR": 0.861072,
+    "CAD": 1.383078,
+    "GBP": 0.739722
   }
 };
