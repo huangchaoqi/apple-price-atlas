@@ -337,11 +337,12 @@ const urls = [...new Set(products.map(x => x.url))];
 const { rates, source } = await updateRates(previous.fx);
 const checks = await Promise.all(urls.map(checkOfficialUrl));
 const healthy = checks.filter(Boolean).length;
-const regionalResults = await Promise.all(regionalPages.map(fetchRegionalPrice));
-const regionalSuccessful = regionalResults.filter(([, price]) => price !== null);
+const basePriceResult = await buildOfficialBasePrices(products, previous.officialBasePrices || {});
+const regionalAnchor = products.find(product => product.name === 'iPhone 17 Pro') || products.find(product => product.category === 'iPhone');
+const regionalAnchorPrices = regionalAnchor ? (basePriceResult.matrix[regionalAnchor.name] || {}) : {};
+const regionalSuccessful = Object.entries(regionalAnchorPrices).filter(([, price]) => Number.isFinite(price) && price > 0);
 const regionalPrices = { ...(previous.officialIPhone17Pro || {}) };
 for (const [name, price] of regionalSuccessful) regionalPrices[name] = price;
-const basePriceResult = await buildOfficialBasePrices(products, previous.officialBasePrices || {});
 
 // Apple occasionally blocks automated requests. A failed check is recorded for review,
 // but never deletes a product or replaces good price data automatically.
