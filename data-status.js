@@ -1,5 +1,5 @@
 window.ATLAS_STATUS = {
-  "updatedAt": "2026-10-12T09:01:18.530Z",
+  "updatedAt": "2026-10-19T07:37:36.247Z",
   "fxSource": "ExchangeRate-API",
   "officialLinksHealthy": 15,
   "officialLinksChecked": 15,
@@ -544,79 +544,79 @@ window.ATLAS_STATUS = {
   "catalogHealth": {
     "iPhone 17e": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.429Z"
     },
     "iPhone 17": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.429Z"
     },
     "iPhone Air": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.429Z"
     },
     "iPhone 16": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "MacBook Neo": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "MacBook Air 13″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "MacBook Air 15″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "MacBook Pro 14″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "MacBook Pro 16″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "iMac 24″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "Mac mini": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "Mac Studio": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "iPad": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "iPad mini": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "iPad Air 11″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "iPad Air 13″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "iPad Pro 11″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "iPad Pro 13″": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "iPhone 16 Plus": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     },
     "MacBook Air": {
       "misses": 0,
@@ -632,7 +632,7 @@ window.ATLAS_STATUS = {
     },
     "iPhone Duo": {
       "misses": 0,
-      "lastChecked": "2026-10-12T09:00:50.449Z"
+      "lastChecked": "2026-10-19T07:37:12.430Z"
     }
   },
   "discoveryAdded": 0,
@@ -641,20 +641,20 @@ window.ATLAS_STATUS = {
   "discoveryPages": 19,
   "fx": {
     "USD": 1,
-    "CNY": 6.700304,
-    "HKD": 7.848048,
-    "JPY": 158.230103,
-    "KRW": 1340.705374,
-    "SGD": 1.280746,
-    "THB": 33.534124,
-    "MYR": 4.085026,
-    "TWD": 31.96443,
-    "VND": 25886.362178,
-    "AUD": 1.431802,
+    "CNY": 6.69274,
+    "HKD": 7.848103,
+    "JPY": 157.911394,
+    "KRW": 1333.598991,
+    "SGD": 1.279456,
+    "THB": 33.419704,
+    "MYR": 4.081565,
+    "TWD": 32.446228,
+    "VND": 25869.403572,
+    "AUD": 1.435811,
     "AED": 3.6725,
-    "CHF": 0.83034,
-    "EUR": 0.892629,
-    "CAD": 1.425643,
-    "GBP": 0.755605
+    "CHF": 0.824293,
+    "EUR": 0.890861,
+    "CAD": 1.41317,
+    "GBP": 0.750306
   }
 };
