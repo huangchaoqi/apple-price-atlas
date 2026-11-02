@@ -1,8 +1,8 @@
 window.ATLAS_STATUS = {
-  "updatedAt": "2026-10-26T07:41:02.790Z",
+  "updatedAt": "2026-11-02T09:16:28.442Z",
   "fxSource": "ExchangeRate-API",
-  "officialLinksHealthy": 15,
-  "officialLinksChecked": 15,
+  "officialLinksHealthy": 16,
+  "officialLinksChecked": 16,
   "regionalPricesHealthy": 17,
   "regionalPricesChecked": 17,
   "officialIPhone17Pro": {
@@ -106,7 +106,7 @@ window.ATLAS_STATUS = {
       "日本": 119800,
       "韩国": 1190000,
       "中国香港": 5499,
-      "中国台湾": 22900,
+      "中国台湾": 23900,
       "新加坡": 999,
       "马来西亚": 2999,
       "泰国": 24900,
@@ -167,8 +167,8 @@ window.ATLAS_STATUS = {
       "澳大利亚": 3199,
       "阿联酋": 8499,
       "瑞士": 1899,
-      "德国": 2199,
-      "法国": 2199,
+      "德国": 2299,
+      "法国": 2299,
       "中国大陆": 15999,
       "加拿大": 2799,
       "英国": 1999
@@ -257,7 +257,7 @@ window.ATLAS_STATUS = {
       "泰国": 16900,
       "越南": 12790000,
       "澳大利亚": 749,
-      "阿联酋": 1999,
+      "阿联酋": 1899,
       "瑞士": 429,
       "德国": 499,
       "法国": 509,
@@ -266,23 +266,23 @@ window.ATLAS_STATUS = {
       "英国": 429
     },
     "iPad mini": {
-      "美国": 599,
-      "日本": 99800,
-      "韩国": 999000,
-      "中国香港": 4599,
-      "中国台湾": 19900,
-      "新加坡": 849,
-      "马来西亚": 2699,
-      "泰国": 21900,
-      "越南": 16499000,
-      "澳大利亚": 949,
-      "阿联酋": 2499,
-      "瑞士": 599,
-      "德国": 679,
-      "法国": 689,
-      "中国大陆": 4799,
-      "加拿大": 849,
-      "英国": 599
+      "美国": 699,
+      "日本": 119800,
+      "韩国": 1149000,
+      "中国香港": 5299,
+      "中国台湾": 22900,
+      "新加坡": 999,
+      "马来西亚": 2999,
+      "泰国": 24900,
+      "越南": 19499000,
+      "澳大利亚": 1099,
+      "阿联酋": 2849,
+      "瑞士": 679,
+      "德国": 749,
+      "法国": 759,
+      "中国大陆": 5499,
+      "加拿大": 949,
+      "英国": 699
     },
     "iPad Air 11″": {
       "美国": 749,
@@ -394,11 +394,28 @@ window.ATLAS_STATUS = {
       "中国大陆": 15999,
       "加拿大": 2999,
       "英国": 1999
+    },
+    "MacBook Pro with PROLED XDR Display": {
+      "美国": 2899,
+      "日本": 499800,
+      "韩国": 4790000,
+      "中国香港": 22999,
+      "中国台湾": 97900,
+      "新加坡": 3999,
+      "马来西亚": 11999,
+      "泰国": 104900,
+      "阿联酋": 11999,
+      "瑞士": 2799,
+      "德国": 3299,
+      "法国": 3299,
+      "中国大陆": 22999,
+      "加拿大": 3999,
+      "英国": 2899
     }
   },
-  "basePricesHealthy": 304,
-  "basePricesChecked": 340,
-  "catalogProductsChecked": 20,
+  "basePricesHealthy": 319,
+  "basePricesChecked": 357,
+  "catalogProductsChecked": 21,
   "autoCatalog": [
     {
       "c": "iPhone",
@@ -495,7 +512,7 @@ window.ATLAS_STATUS = {
       "c": "iPad",
       "n": "iPad mini",
       "s": "A17 Pro · 128GB · Wi‑Fi",
-      "usd": 599,
+      "usd": 699,
       "u": "https://www.apple.com/shop/buy-ipad/ipad-mini"
     },
     {
@@ -539,84 +556,91 @@ window.ATLAS_STATUS = {
       "s": "256GB",
       "usd": 1999,
       "u": "https://www.apple.com/shop/buy-iphone/iphone-duo"
+    },
+    {
+      "c": "Mac",
+      "n": "MacBook Pro with PROLED XDR Display",
+      "s": "官网基础配置",
+      "usd": 2899,
+      "u": "https://www.apple.com/shop/buy-mac/macbook-pro-proled-xdr"
     }
   ],
   "catalogHealth": {
     "iPhone 17e": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPhone 17": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPhone Air": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPhone 16": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "MacBook Neo": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "MacBook Air 13″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "MacBook Air 15″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "MacBook Pro 14″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "MacBook Pro 16″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iMac 24″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "Mac mini": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "Mac Studio": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPad": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPad mini": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPad Air 11″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPad Air 13″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPad Pro 11″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPad Pro 13″": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "iPhone 16 Plus": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     },
     "MacBook Air": {
       "misses": 0,
@@ -632,29 +656,33 @@ window.ATLAS_STATUS = {
     },
     "iPhone Duo": {
       "misses": 0,
-      "lastChecked": "2026-10-26T07:40:49.487Z"
+      "lastChecked": "2026-11-02T09:16:12.633Z"
+    },
+    "MacBook Pro with PROLED XDR Display": {
+      "misses": 0,
+      "lastChecked": "2026-11-02T09:16:12.633Z"
     }
   },
-  "discoveryAdded": 0,
+  "discoveryAdded": 1,
   "discoveryRemoved": 0,
-  "discoveryCandidates": 17,
-  "discoveryPages": 19,
+  "discoveryCandidates": 18,
+  "discoveryPages": 20,
   "fx": {
     "USD": 1,
-    "CNY": 6.677446,
-    "HKD": 7.842801,
-    "JPY": 156.872016,
-    "KRW": 1323.904108,
-    "SGD": 1.278569,
-    "THB": 33.762188,
-    "MYR": 4.085277,
-    "TWD": 32.596145,
-    "VND": 25829.651426,
-    "AUD": 1.422894,
+    "CNY": 6.660856,
+    "HKD": 7.844618,
+    "JPY": 157.532149,
+    "KRW": 1332.76172,
+    "SGD": 1.278048,
+    "THB": 33.755423,
+    "MYR": 4.05704,
+    "TWD": 32.636828,
+    "VND": 25786.746123,
+    "AUD": 1.422744,
     "AED": 3.6725,
-    "CHF": 0.824578,
-    "EUR": 0.89213,
-    "CAD": 1.401312,
-    "GBP": 0.747783
+    "CHF": 0.824534,
+    "EUR": 0.896073,
+    "CAD": 1.396839,
+    "GBP": 0.746906
   }
 };
